@@ -10,3 +10,5 @@ these are the ones I enjoyed the most
 - [truck tour](https://www.hackerrank.com/challenges/truck-tour/problem)
 - [jesse and cookies](https://www.hackerrank.com/challenges/jesse-and-cookies/problem)
 - [lego blocks](https://www.hackerrank.com/challenges/lego-blocks/problem) (struggle was real)
+- [huffman decoding](https://www.hackerrank.com/challenges/tree-huffman-decoding/problem)
+- [no prefix set](https://www.hackerrank.com/challenges/no-prefix-set/problem)
