@@ -1,17 +1,3 @@
-def removeIth(s, i):
-	return s[:i] + s[i+1:]
-
-def palindromeIndexSimple(s):
-	if s == s[::-1]:
-		return -1
-	
-	for i in range(len(s) - 1):
-		ithRemoved = removeIth(s, i)
-		if ithRemoved == ithRemoved[::-1]:
-			return i
-		
-	return -1
-
 def isPalindrome(s):
 	st = 0
 	ed = len(s) - 1
@@ -25,16 +11,19 @@ def isPalindrome(s):
 def palindromeIndex(s):
 	if isPalindrome(s):
 		return -1
+	
 	st = 0
 	ed = len(s) - 1
 	while st <= ed:
 		if s[st] != s[ed]:
-			if isPalindrome(removeIth(s, st)):
+			if isPalindrome(s[st+1:ed+1]):
 				return st
-			if isPalindrome(removeIth(s, ed)):
+			if isPalindrome(s[st:ed]):
 				return ed
+			return -1
 		st += 1
 		ed -= 1
+		
 	return -1
 
 if __name__ == "__main__":
@@ -47,8 +36,4 @@ if __name__ == "__main__":
 		for s in cases:
 			print("Running test case", s)
 			result = palindromeIndex(s)
-			if result != -1:
-				print("Resulting palind:", removeIth(s, result))
-			else:
-				print("Not a palindrome, or already is")
-			print()
+			print(result, s)

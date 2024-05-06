@@ -1,0 +1,1 @@
+[Why does the variable S require the global keyword in the functions but history does not?](https://docs.python.org/3/reference/datamodel.html#:~:text=An%20object%E2%80%99s%20mutability%20is%20determined%20by%20its%20type%3B%20for%20instance%2C%20numbers%2C%20strings%20and%20tuples%20are%20immutable%2C%20while%20dictionaries%20and%20lists%20are%20mutable.)

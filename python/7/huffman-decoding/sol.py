@@ -1,12 +1,12 @@
 def decodeHuff(root, s):
     out = ''
-    while s:
-        tmp = root
-        while tmp.left or tmp.right:
-            if s[0] == "1":
-                tmp = tmp.right
-            else:
-                tmp = tmp.left
-            s = s[1:]
-        out += tmp.data
+    node = root
+    for char in s:
+        if char == "1":
+            node = node.right
+        else:
+            node = node.left
+        if node.left is None and node.right is None:
+            out += node.data
+            node = root
     print(out, end='')

@@ -1,42 +1,25 @@
 """
-Not a great solution. Will revisit this and write a basic tree
+https://www.youtube.com/watch?v=evqAsdJ05yY
 """
-def noPrefix(words):
-    d = {}
-    for word in words:
-        if d.get(word[0]) is None:
-            root = {}
-            d[word[0]] = root
-        else:
-            root = d[word[0]]
-            # Bad case
-            if len(root) == 0:
-                print("BAD SET")
-                print(word)
-                return
-        tmp = root
-        prev = tmp
-        for char in word[1:]:
-            prev = tmp
-            tmp = tmp.get(char)
-            
-            # Previous word is a prefix
-            if tmp is not None:
-                if len(tmp) == 0:
-                    print("BAD SET")
-                    print(word)
-                    return
-                
-            if tmp is None:
-                tmp = {}
-                prev[char] = tmp
+def insert(trie, word):
+    for i, char in enumerate(word):
+        if char in trie:  
+            # If there is a prefix for this word
+            # or this word is a prefix for other
+            if trie[char][1] or i == len(word) - 1:
+                return True
+        else:# This combination not seen yet
+            trie[char] = ({}, i == len(word) - 1)
+        trie, _ = trie[char] # Look down the tri
+    return False
 
-        # Current word is a prefix
-        if len(tmp) != 0:
+def noPrefix(words):
+    trie = {}
+    for word in words:
+        if insert(trie, word):
             print("BAD SET")
             print(word)
             return
-
     print("GOOD SET")
 
 if __name__ == "__main__":

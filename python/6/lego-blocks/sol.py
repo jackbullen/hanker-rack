@@ -5,17 +5,10 @@ https://www.youtube.com/watch?v=u9fL52Hryiw
 modulo = 10**9 + 7
 def legoBlocks(height, width):
     """Who knew lego could be so difficult..."""
-    a = [1,2,4,8]
+    g = [2**(wd - 1) for wd in range(1, 5)]
     if width > 4:
-        for _ in range(5, width+1):
-            a.append(sum(a[-4:]))
-    else:
-        a = a[:width]
-
-    g = [0 for _ in range(width + 1)]
-    g[:4] = a[:]
-    for i in range(5, width + 1):
-        g[i] = (g[i-4] + g[i-3] + g[i-2] + g[i-1]) % modulo
+        for _ in range(4, width):
+            g.append(sum(g[-4:]) % modulo)
     for i in range(1, width):
         g[i] = g[i]**height % modulo
 

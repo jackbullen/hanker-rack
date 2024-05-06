@@ -1,11 +1,9 @@
 def recurse(n):
-    string = str(n)
-    if len(string) == 1:
-        return int(string)
+    if n < 10:
+        return n
     else:
-        return recurse(sum([int(x) for x in string]))
-    
+        return recurse(sum([int(x) for x in str(n)]))
+
 def superDigit(n, k):
-    string = str(n)
-    x = sum([int(x) for x in string]) * k
+    x = sum([int(x) for x in str(n)]) * k
     return recurse(x)
